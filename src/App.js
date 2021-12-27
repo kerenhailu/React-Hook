@@ -1,23 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import Counter from './Components/Counter.component';
+import Team from './Components/Team.component';
+import Form from './Components/Form.component';
+import Cat from './Components/Cat.component';
+import { useState } from 'react';
 
+// מתג הסוויץ משנה לי קומפוננטה
 function App() {
+  const[meteg,setMeteg]=useState(true);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter/>
+      <Team/>
+     {/* <Form/> */}
+     <br></br>
+     <br></br>
+     <button onClick={()=>setMeteg(!meteg)}>swich</button>
+     {meteg?<Form/>:<Cat/>}
+     {/* <Cat/> */}
+     <br></br>
     </div>
   );
 }
